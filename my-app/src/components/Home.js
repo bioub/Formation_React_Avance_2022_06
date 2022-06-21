@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Component, useState } from 'react';
 import { hideable } from '../hocs/hideable';
 import TodoCount from '../todos/components/TodoCount/TodoCount';
 import Clock from './Clock/Clock';
@@ -6,6 +6,7 @@ import Hideable from './Hideable';
 import HideableWithTransfer from './HideableWithTransfer';
 import List from './List';
 import Select from './Select/Select';
+import SelectBonus from './Select/SelectBonus';
 
 const HideableTodoCount = hideable(TodoCount);
 const HideableClock = hideable(Clock);
@@ -71,9 +72,26 @@ export default function Home({ location }) {
         selected={name}
         onSelected={(item) => setName(item)}
         renderSelected={() => <b>{name}</b>}
-        renderItem={(item) => (item === name) ? <i>{item}</i> : item}
+        renderItem={(item) => (item === name ? <i>{item}</i> : item)}
+      />
+      <SelectBonus
+        items={['Romain', 'Jean', 'Eric']}
+        selected={name}
+        onSelected={(item) => setName(item)}
+        renderSelected={() => <b>{name}</b>}
+        renderItem={Item}
       />
       <p>Vous avez sélectionné : {name}</p>
     </div>
   );
+}
+
+// function Item(props) {
+//   return <i>{props.children}</i>
+// }
+
+class Item extends Component {
+  render() {
+    return <i onClick={this.props.onClick}>{this.props.children}</i>
+  }
 }
