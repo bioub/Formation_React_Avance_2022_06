@@ -1,4 +1,6 @@
 import { Component, useState } from 'react';
+import { colored } from '../hocs/colored';
+import { colored2 } from '../hocs/colored2';
 import { hideable } from '../hocs/hideable';
 import TodoCount from '../todos/components/TodoCount/TodoCount';
 import Clock from './Clock/Clock';
@@ -7,9 +9,30 @@ import HideableWithTransfer from './HideableWithTransfer';
 import List from './List';
 import Select from './Select/Select';
 import SelectBonus from './Select/SelectBonus';
+import SelectHook from './Select/SelectHook';
 
 const HideableTodoCount = hideable(TodoCount);
 const HideableClock = hideable(Clock);
+
+// Ex 2.1
+const red = colored('red');
+const blue = colored('blue');
+
+const BlueClock = blue(Clock);
+const RedClock = red(Clock);
+const BlueTodoCount = blue(TodoCount)
+const RedTodoCount = red(TodoCount);
+
+// <BlueClock /> <-- horloge avec le texte bleu
+// <RedClock /> <-- horloge avec le texte rouge
+
+// Ex 2.2
+const ColoredClock = colored2(Clock);
+const ColoredTodoCount = colored2(TodoCount);
+
+// <ColoredClock color="blue" /> <-- horloge avec le texte bleu
+// <ColoredClock color="red" /> <-- horloge avec le texte rouge
+
 
 export default function Home({ location }) {
   console.log(location.pathname);
@@ -82,6 +105,25 @@ export default function Home({ location }) {
         renderItem={Item}
       />
       <p>Vous avez sélectionné : {name}</p>
+
+      <h2>Exercice 2 HOC</h2>
+      <BlueClock />
+      <RedClock />
+      <BlueTodoCount count={10} />
+      <RedTodoCount count={10} />
+
+      <ColoredClock color="blue" />
+      <ColoredClock color="red" />
+      <ColoredTodoCount count={10} color="blue" />
+      <ColoredTodoCount count={10} color="red" />
+
+      <SelectHook
+        items={['Romain', 'Jean', 'Eric']}
+        selected={name}
+        onSelected={(item) => setName(item)}
+        renderSelected={() => <b>{name}</b>}
+        renderItem={(item) => (item === name ? <i>{item}</i> : item)}
+      />
     </div>
   );
 }

@@ -10,4 +10,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(TodoList);
+const enhance = connect(mapStateToProps);
+export default enhance(TodoList);
