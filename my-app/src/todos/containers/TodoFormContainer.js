@@ -28,11 +28,11 @@ function TodoFormContainer() {
   const newTodoInput = useSelector(selectTodosInput);
   const dispatch = useDispatch();
 
-  function handleNewTodoChange() {
+  function handleNewTodoChange(inputVal) {
     dispatch(todoChange(inputVal));
   }
 
-  function handleNewTodoAdd() {
+  function handleNewTodoAdd(inputVal) {
     dispatch(todoAdd(inputVal));
   }
 

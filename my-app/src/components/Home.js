@@ -10,7 +10,9 @@ import Select from './Select/Select';
 const HideableTodoCount = hideable(TodoCount);
 const HideableClock = hideable(Clock);
 
-export default function Home() {
+export default function Home({ location }) {
+  console.log(location.pathname);
+
   const [name, setName] = useState('Romain');
 
   return (
@@ -23,7 +25,7 @@ export default function Home() {
       <HideableClock />
       <HideableTodoCount count={10} defaultShow={false} />
 
-      <h2>Composants enrichis avec RenderProps</h2>
+      <h2>Composants enrichis avec de la composition</h2>
       <Hideable>
         <Clock />
       </Hideable>
@@ -37,19 +39,19 @@ export default function Home() {
       </h2>
       <HideableWithTransfer>
         {(show) => (
-          <div>
+          <>
             {show ? 'Clock should be displayed' : 'Clock should be hidden'}
             <Clock />
-          </div>
+          </>
         )}
       </HideableWithTransfer>
 
       <HideableWithTransfer>
         {(show) => (
-          <div>
+          <>
             {show ? 'Clock should be displayed' : 'Clock should be hidden'}
             <TodoCount count={10} defaultShow={false} />
-          </div>
+          </>
         )}
       </HideableWithTransfer>
 
@@ -64,7 +66,12 @@ export default function Home() {
       />
 
       <h2>Exercices</h2>
-      <Select items={['Romain', 'Jean', 'Eric']} selected={name} onSelected={(item) => setName(item)} />
+      <Select
+        items={['Romain', 'Jean', 'Eric']}
+        selected={name}
+        onSelected={(item) => setName(item)}
+      />
+      <p>Vous avez sélectionné : {name}</p>
     </div>
   );
 }

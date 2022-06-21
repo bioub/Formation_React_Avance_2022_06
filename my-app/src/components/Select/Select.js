@@ -6,7 +6,7 @@ class Select extends Component {
     open: false,
   };
   hostRef = createRef();
-  handleOpen = (event) => {
+  handleOpen = () => {
     const { open } = this.state;
     this.setState({
       open: !open,
