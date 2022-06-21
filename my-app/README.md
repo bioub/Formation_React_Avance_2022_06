@@ -40,3 +40,7 @@ Editer ce JSX de sorte que `BaseComponent` recoivent ses props.
 Dans `Home.js`, générer un composant `BlueClock` et `RedClock` en utilisant le HOC `colored` et utilisez les.
 
 Bonus : améliorer `colored` de sorte qu'il reçoit la couleur via les props du composant enrichi et non via la fonctio `colored`. Remplacer `BlueClock` et `RedClock` par un seul composant `ColoredClock` et utilisez le comme ceci : `<ColoredClock color="red" />`
+
+## Hooks
+
+Reprendre le code de Select et le traduire en function component avec les hooks : `useState`, `useEffect` et `useRef`.
