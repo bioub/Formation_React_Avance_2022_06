@@ -70,6 +70,8 @@ export default function Home({ location }) {
         items={['Romain', 'Jean', 'Eric']}
         selected={name}
         onSelected={(item) => setName(item)}
+        renderSelected={() => <b>{name}</b>}
+        renderItem={(item) => (item === name) ? <i>{item}</i> : item}
       />
       <p>Vous avez sélectionné : {name}</p>
     </div>

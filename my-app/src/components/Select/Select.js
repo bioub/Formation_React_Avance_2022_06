@@ -22,17 +22,17 @@ class Select extends Component {
     });
   }
   render() {
-    const { selected, items, onSelected } = this.props;
+    const { selected, items, onSelected, renderSelected, renderItem } = this.props;
     const { open } = this.state;
 
     return (
       <div className="Select" onClick={this.handleOpen} ref={this.hostRef}>
-        <div className={styles.selected}>{selected}</div>
+        <div className={styles.selected}>{renderSelected ? renderSelected(selected) : selected}</div>
         {open && (
           <div className={styles.menu}>
             {items.map((item) => (
               <div className={styles.item} key={item} onClick={() => onSelected(item)}>
-                {item}
+                {renderItem ? renderItem(item) : item}
               </div>
             ))}
           </div>
