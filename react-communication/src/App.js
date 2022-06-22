@@ -6,6 +6,15 @@ import AppExampleContextWithHooks from './example-context-with-hooks/AppExampleC
 import AppExampleRedux from './example-redux/AppExampleRedux';
 import AppExampleReduxWithHooks from './example-redux-with-hooks/AppExampleReduxWithHooks';
 
+// /**
+//  * @param {string} name 
+//  */
+// function hello(name) {
+//   return 'Hello ' + name.toUpperCase()
+// }
+
+// hello(123)
+
 function App() {
   return (
     <div className="App">

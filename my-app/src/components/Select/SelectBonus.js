@@ -1,4 +1,4 @@
-import { Component, createRef } from "react";
+import React, { Component, createRef } from "react";
 import styles from './Select.module.css';
 
 class SelectBonus extends Component {

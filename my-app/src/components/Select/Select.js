@@ -15,8 +15,6 @@ class Select extends Component {
   componentDidMount() {
     document.addEventListener('click', (event) => {
       if (!this.hostRef.current?.contains(event.target)) {
-        console.log('open', open);
-
         this.setState(({open}) => ({
           open: !open,
         }));

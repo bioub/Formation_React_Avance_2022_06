@@ -91,6 +91,8 @@ function useNow() {
 }
 
 export default function Clock() {
+  // console.log('Clock renders');
+
   const now = useNow();
 
   return <div className="Clock">{now.toLocaleTimeString()}</div>;

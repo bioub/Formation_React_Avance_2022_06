@@ -5,6 +5,7 @@ export default function TodoForm({
   onNewTodoChange,
   onNewTodoAdd,
 }) {
+  console.log('TodoForm renders');
   function handleSubmit(event) {
     event.preventDefault();
     onNewTodoAdd(newTodoInput);
