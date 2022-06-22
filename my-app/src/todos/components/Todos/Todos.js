@@ -31,7 +31,7 @@ export default function Todos() {
   }
 
   // const localTodos = useMemo(() => [{id: 1, text: 'ABC'}], [])
-  // const handleTodoDelete = useMemo(() => function handleTodoDelete(item) {
+  // const handleTodoDelete = useMemo(() => (item) => {
   //   setTodos(todos.filter((t) => t.id !== item.id));
   // }, [todos]);
 

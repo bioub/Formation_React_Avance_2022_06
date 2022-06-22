@@ -40,6 +40,19 @@ todos = [
   }
 ]
 
+// function memo(fct) {
+//   let cacheVal;
+//   let cacheReturn;
+//   return function(val) {
+//     if (val === cacheVal) {
+//       return cacheReturn;
+//     }
+//     cacheReturn = fct(val);
+//     cacheVal = val;
+//     return cacheReturn;
+//   }
+// }
+
 // 2e render
 console.time('todosCompletedCountMemo');
 console.log(todosCompletedCountMemo(todos) + ' todos completed');
