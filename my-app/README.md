@@ -44,3 +44,30 @@ Bonus : améliorer `colored` de sorte qu'il reçoit la couleur via les props du 
 ## Hooks
 
 Reprendre le code de Select et le traduire en function component avec les hooks : `useState`, `useEffect` et `useRef`.
+
+## Automatisation des tests
+
+### Fonction pure
+
+Ecrire des tests pour `usersReducer`, lui passer un objet state d'exemple et une action puis vérifier que le state retourné corresponde à vos attentes.
+
+Ex :
+
+```js
+const state = {
+  loading: false,
+  items: [],
+}:
+const nextState = usersReducer(state, { type: 'USER_FETCH' });
+
+// vérifier que loading vaille true
+```
+
+Ecrire ensuite au moins un test de `selectUsersItemsById`
+
+## Tests de composant
+
+Utiliser testing-library pour vérifier que `TodoItem` fonctionne correctemenet :
+
+- vérifier que la clé `text` de l'objet `todo` s'affiche dans le composant
+- vérifier qu'au click du bouton moins `onDeleteItem` soit bien appelé avec l'item
