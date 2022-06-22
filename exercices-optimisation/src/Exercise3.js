@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, PureComponent } from 'react';
 
 class Exercise3 extends Component {
   state = {
@@ -13,6 +13,12 @@ class Exercise3 extends Component {
         { text: this.state.value, id: Math.random() },
         ...this.state.todos,
       ],
+    });
+  };
+
+  handleDelete = (todo) => {
+    this.setState({
+      todos: this.state.todos.filter((t) => t.id !== todo.id),
     });
   };
 
@@ -56,21 +62,14 @@ class Exercise3 extends Component {
             />
             <button>+</button>
           </form>
-          <TodosList
-            todos={this.state.todos}
-            onDelete={(todo) =>
-              this.setState({
-                todos: this.state.todos.filter((t) => t.id !== todo.id),
-              })
-            }
-          />
+          <TodosList todos={this.state.todos} onDelete={this.handleDelete} />
         </div>
       </div>
     );
   }
 }
 
-class TodosList extends Component {
+class TodosList extends PureComponent {
   render() {
     console.log('render TodosList');
     return (
